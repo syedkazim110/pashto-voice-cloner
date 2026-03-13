@@ -30,7 +30,7 @@ echo ""
 # Install system dependencies (FFmpeg libs needed for PyAV/OpenVoice)
 echo "📦 Installing system dependencies (FFmpeg, etc.)..."
 echo "   (May ask for sudo password)"
-sudo apt-get update -qq
+sudo apt-get update -qq 2>/dev/null || true
 sudo apt-get install -y -qq \
     ffmpeg \
     libavformat-dev \
