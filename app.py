@@ -54,7 +54,7 @@ def load_model():
 print(f"🔧 Device: {DEVICE}")
 if DEVICE == "cuda":
     print(f"🔥 GPU: {torch.cuda.get_device_name(0)}")
-    print(f"💾 VRAM: {torch.cuda.get_device_properties(0).total_mem / 1024**3:.1f} GB")
+    print(f"💾 VRAM: {torch.cuda.get_device_properties(0).total_memory / 1024**3:.1f} GB")
 
 print("📦 Loading OpenVoice v2 model...")
 converter = load_model()
