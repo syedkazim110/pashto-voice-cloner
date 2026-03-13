@@ -27,6 +27,25 @@ fi
 
 echo ""
 
+# Install system dependencies (FFmpeg libs needed for PyAV/OpenVoice)
+echo "📦 Installing system dependencies (FFmpeg, etc.)..."
+echo "   (May ask for sudo password)"
+sudo apt-get update -qq
+sudo apt-get install -y -qq \
+    ffmpeg \
+    libavformat-dev \
+    libavcodec-dev \
+    libavdevice-dev \
+    libavutil-dev \
+    libavfilter-dev \
+    libswscale-dev \
+    libswresample-dev \
+    pkg-config \
+    2>/dev/null
+echo "✅ System dependencies installed"
+
+echo ""
+
 # Create virtual environment
 if [ ! -d "venv" ]; then
     echo "📦 Creating virtual environment..."
