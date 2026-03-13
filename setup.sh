@@ -76,15 +76,9 @@ else:
     print('⚠️  PyTorch CUDA not available — will use CPU')
 "
 
-# Pre-install PyAV binary wheel (avoids Cython compilation issues)
+# Clone OpenVoice repository
 echo ""
-echo "📥 Installing PyAV (audio/video processing)..."
-pip install av --only-binary=:all: --quiet
-echo "✅ PyAV installed"
-
-# Clone and install OpenVoice
-echo ""
-echo "📥 Installing OpenVoice v2..."
+echo "📥 Cloning OpenVoice v2..."
 if [ ! -d "OpenVoice" ]; then
     git clone https://github.com/myshell-ai/OpenVoice.git
     echo "✅ OpenVoice repository cloned"
@@ -92,16 +86,35 @@ else
     echo "✅ OpenVoice repository already exists"
 fi
 
+# Install OpenVoice package (without its pinned old deps)
+echo "📥 Installing OpenVoice package..."
 cd OpenVoice
-pip install -e . --quiet
+pip install -e . --no-deps --quiet
 cd ..
-echo "✅ OpenVoice installed"
+echo "✅ OpenVoice package installed"
 
-# Install additional dependencies
+# Install dependencies with compatible versions (not ancient pinned ones)
 echo ""
-echo "📥 Installing Web UI dependencies..."
-pip install gradio huggingface_hub --quiet
-echo "✅ Gradio and dependencies installed"
+echo "📥 Installing dependencies..."
+pip install \
+    numpy \
+    librosa \
+    faster-whisper \
+    pydub \
+    wavmark \
+    eng_to_ipa \
+    inflect \
+    unidecode \
+    whisper-timestamped \
+    pypinyin \
+    cn2an \
+    jieba \
+    langid \
+    av \
+    gradio \
+    huggingface_hub \
+    --quiet
+echo "✅ All dependencies installed"
 
 # Download model checkpoints
 echo ""
