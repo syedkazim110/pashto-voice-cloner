@@ -76,6 +76,12 @@ else:
     print('⚠️  PyTorch CUDA not available — will use CPU')
 "
 
+# Pre-install PyAV binary wheel (avoids Cython compilation issues)
+echo ""
+echo "📥 Installing PyAV (audio/video processing)..."
+pip install av --only-binary=:all: --quiet
+echo "✅ PyAV installed"
+
 # Clone and install OpenVoice
 echo ""
 echo "📥 Installing OpenVoice v2..."
