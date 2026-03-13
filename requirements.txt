@@ -1,0 +1,10 @@
+# Voice Cloner - Pashto/Urdu/Any Language
+# ========================================
+# Core dependencies (OpenVoice is installed from git in setup.sh)
+
+torch
+torchaudio
+gradio>=4.0
+huggingface_hub
+numpy
+librosa

@@ -1,0 +1,36 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# OpenVoice (cloned repo - installed by setup.sh)
+OpenVoice/
+
+# Model checkpoints (downloaded by setup.sh)
+checkpoints_v2/
+
+# Outputs (generated audio files)
+outputs/*.wav
+outputs/*.mp3
+
+# Temporary/processed files
+processed/
+flagged/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Gradio cache
+gradio_cached_examples/
