@@ -113,8 +113,15 @@ pip install \
     av \
     gradio \
     huggingface_hub \
+    noisereduce \
+    soundfile \
     --quiet
 echo "✅ All dependencies installed"
+
+# Install RVC inference (optional — for trained voice models)
+echo ""
+echo "📥 Installing RVC inference support..."
+pip install rvc-python --quiet 2>/dev/null && echo "✅ RVC inference installed" || echo "⚠️  RVC inference install failed (optional — can be installed later)"
 
 # Download model checkpoints
 echo ""
